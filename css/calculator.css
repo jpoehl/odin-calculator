@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    min-height: 100vh;
+}
+
+#casing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 450px;
+    border: solid black;
+    padding: 5px;
+    background-color: #DBBC7B;
+    gap: 10px;
+}
+
+#footer {
+    margin-top: auto;
+    font-size: 10px;
+    text-align: center;
+}
+
+#keys {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+
+#inputs {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#housekeeping {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+}
+
+#casing,
+#display,
+.key {
+    border: #000000 solid;
+    border-radius: 10px;
+}
+
+.key {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+    min-height: 50px;
+    background-color: #BD8D28;
+}
+
+
+#equal {
+    background-color: #5A89DB;
+}
+
+#display {
+    display: flex;
+    flex: 1;
+    justify-content: right;
+    align-items: flex-end;
+    padding: 3px;
+    background-color: #82B0FF;
+}
