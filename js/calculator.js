@@ -18,3 +18,25 @@ function divide(x, y) {
         return x / y;
     }
 }
+
+// Operating function
+function operate(a, b, o) {
+    let result;
+
+    switch (o) {
+        case '+':
+            result = add(a, b);
+            break;
+        case '-':
+            result = subtract(a, b);
+            break;
+        case '/':
+            result = divide(a, b);
+            break;
+        case '*':
+            result = multiply(a, b);
+            break;
+    }
+
+    return result;
+}
