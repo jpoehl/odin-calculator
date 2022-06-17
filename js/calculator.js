@@ -12,5 +12,9 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-    return x/y;
+    if (y === 0) {
+        return undefined;
+    } else {
+        return x / y;
+    }
 }
