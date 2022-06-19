@@ -32,7 +32,7 @@ function divide(x, y) {
 }
 
 // Operating function
-function operate(a, b, o) {
+function compute(a, b, o) {
     let result;
 
     switch (o) {
@@ -97,6 +97,19 @@ class Calculator {
 
         // Append number
         this.operandCurr = this.operandCurr.toString() + num.toString();
+    }
+
+    // Choose an operation
+    operate(operation) {
+        if (this.operandCurr === "") return;
+        if (this.operandPrev !== "") {
+            this.compute();
+        }
+
+        this.operation = operation;
+        this.operandPrev = this.operandCurr;
+        this.operandCurr = "";
+
     }
 }
 
