@@ -74,9 +74,12 @@ class Calculator {
 
     // Method to append a number
     append(num) {
+        // Check if operand already contains a decimal point
         if (num === '.' && this.operandCurr.includes('.')) return;
-        
-        // Append number
+        // Prevent more than one decimal input (as per TOP instructions)
+        const decimalDigits = this.operandCurr.toString().split(".");
+        if (decimalDigits[1] !== undefined && decimalDigits[1].length > 0) return;
+
         this.operandCurr = this.operandCurr.toString() + num.toString();
     }
 
