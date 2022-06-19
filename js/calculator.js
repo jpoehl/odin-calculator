@@ -74,9 +74,8 @@ class Calculator {
 
     // Method to append a number
     append(num) {
-        // Check if number already contains a decimal point
-        if (num === "." && this.operandCurr.includes(".")) return;
-
+        if (num === '.' && this.operandCurr.includes('.')) return;
+        
         // Append number
         this.operandCurr = this.operandCurr.toString() + num.toString();
     }
