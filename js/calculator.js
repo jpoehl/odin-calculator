@@ -145,7 +145,7 @@ class Calculator {
 // Create a calculator item
 const calculator = new Calculator(operandPrevText, operandCurrText);
 
-// Add event listeners
+// Add event listeners for clicks
 /// Number buttons, if clicked, should append a number to the current operand and update the display
 for (const btn of btnNumbers) {
     btn.addEventListener("click", (e) => {// Wrap in a function
@@ -178,4 +178,43 @@ btnClearAll.addEventListener("click", () => {
 btnCancel.addEventListener("click", () => {
     calculator.cancel();
     calculator.updateDisplay();
+})
+
+// Add event listeners for key strokes
+document.addEventListener("keydown", (e) => {
+    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key)) {
+        e.preventDefault();
+        calculator.append(e.key);
+        calculator.updateDisplay();
+    }
+
+    if (["+", "-", "/", "*"].includes(e.key)) {
+        e.preventDefault();
+        calculator.operate(e.key);
+        calculator.updateDisplay();
+    }
+
+    if (e.key === ".") {
+        e.preventDefault();
+        calculator.append(e.key);
+        calculator.updateDisplay();
+    }
+
+    if (e.key === "=" || e.key === "Enter") {
+        e.preventDefault();
+        calculator.compute();
+        calculator.updateDisplay();
+    }
+
+    if (e.key === "Backspace") {
+        e.preventDefault();
+        calculator.cancel();
+        calculator.updateDisplay();
+    }
+
+    if (e.key === "Delete") {
+        e.preventDefault();
+        calculator.clearall();
+        calculator.updateDisplay();
+    }
 })
