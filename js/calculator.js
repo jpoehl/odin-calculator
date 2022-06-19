@@ -8,7 +8,7 @@ const btnClearAll = document.getElementById("clearall");
 
 // Get output fields
 const operandPrevText = document.getElementById("operandPrev");
-const operandCurrText = document.getElementById("operandCurrent")
+const operandCurrText = document.getElementById("operandCurrent");
 
 // Mathematical functions
 function add(x, y) {
@@ -30,7 +30,6 @@ function divide(x, y) {
         return x / y;
     }
 }
-
 
 // Format for display
 /// Obtain the number of decimal places (https://stackoverflow.com/questions/9539513/is-there-a-reliable-way-in-javascript-to-obtain-the-number-of-decimal-places-of)
@@ -56,9 +55,9 @@ function display(x, decimals = 10) {
 
 // Venture into OOP: create a calculator class (https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/)
 class Calculator {
-    constructor(operandPrev, operandCurr) {
-        this.operandPrev = operandPrev;
-        this.operandCurr = operandCurr;
+    constructor(operandPrevText, operandCurrText) {
+        this.operandPrevText = operandPrevText;
+        this.operandCurrText = operandCurrText;
         this.clearall();
     }
 
@@ -67,6 +66,11 @@ class Calculator {
         this.operandPrev = "";
         this.operandCurr = "";
         this.operation = undefined;
+    }
+
+    // Method to cancel last action
+    cancel() {
+        this.operandCurr = this.operandCurr.toString().slice(0, -1);
     }
 
     // Method to append a number
@@ -118,10 +122,22 @@ class Calculator {
         this.operandPrev = "";
         this.operation = undefined;
     }
+
+    // Update display
+    updateDisplay() {
+        this.operandCurrText.textContent = display(this.operandCurr);
+
+        if (this.operation != null) {
+            this.operandPrevText.textContent = `${display(this.operandPrev)} ${this.operation}`;
+        } else {
+            this.operandPrevText.textContent = "";
+        }
+    }
+
 }
 
 // Create a calculator item
-const calculator = new Calculator(operandPrev, operandCurr);
+const calculator = new Calculator(operandPrevText, operandCurrText);
 
 // Add event listeners
 /// Number buttons, if clicked, should append a number to the current operand and update the display
@@ -141,7 +157,19 @@ for (const btn of btnOperators) {
 }
 
 /// Equals button: Return result
-btnEqual.addEventListener("click", btn => {
+btnEqual.addEventListener("click", () => {
     calculator.compute();
+    calculator.updateDisplay();
+})
+
+/// Clear all button
+btnClearAll.addEventListener("click", () => {
+    calculator.clearall();
+    calculator.updateDisplay();
+})
+
+/// Cancel button
+btnCancel.addEventListener("click", () => {
+    calculator.cancel();
     calculator.updateDisplay();
 })
