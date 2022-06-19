@@ -10,6 +10,15 @@ const btnClearAll = document.getElementById("clearall");
 const operandPrev = document.getElementById("operandPrev");
 const operandCurr = document.getElementById("operandCurrent")
 
+// Add event listeners
+/// Number buttons, if clicked, should append a number to the current operand and update the display
+btnNumbers.forEach(btn => {
+    btn.addEventListener("click", () => {// Wrap in a function
+        calculator.append(btn.innerText);
+        calculator.updateDisplay()
+    })
+})
+
 // Mathematical functions
 function add(x, y) {
     return x + y;
