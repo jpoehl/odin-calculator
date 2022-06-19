@@ -10,6 +10,15 @@ const btnClearAll = document.getElementById("clearall");
 const operandPrev = document.getElementById("operandPrev");
 const operandCurr = document.getElementById("operandCurrent")
 
+// Venture into OOP: create a calculator class (https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/)
+class Calculator {
+    constructor(operandPrev, operandCurr) {
+        this.operandPrev = operandPrev;
+        this.operandCurr = operandCurr;
+        this.clear();
+    }
+}
+
 // Mathematical functions
 function add(x, y) {
     return x + y;
