@@ -83,11 +83,20 @@ class Calculator {
         this.clearall();
     }
 
-    // Function to clear all inputs
+    // Method to clear all inputs
     clearall() {
         this.operandPrev = "";
         this.operandCurr = "";
         this.operation = undefined;
+    }
+
+    // Method to append a number
+    append(num) {
+        // Check if number already contains a decimal point
+        if (num === "." && this.operandCurr.includes(".")) return;
+
+        // Append number
+        this.operandCurr = this.operandCurr.toString() + num.toString();
     }
 }
 
