@@ -126,6 +126,11 @@ class Calculator {
 
     // Update display
     updateDisplay() {
+        if (this.operandCurr === undefined) {
+            alert("Division by zero is not possible.");
+            this.clearall()
+        };
+
         this.operandCurrText.textContent = display(this.operandCurr);
 
         if (this.operation != null) {
