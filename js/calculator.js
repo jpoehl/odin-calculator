@@ -1,3 +1,15 @@
+// Get buttons
+const btnNumbers = document.querySelectorAll('[data-digit]');
+const btnOperators = document.querySelectorAll('[data-operator]');
+const btnEqual = document.getElementById("equal");
+const btnDecimal = document.getElementById("decimal");
+const btnCancel = document.getElementById("cancel");
+const btnClearAll = document.getElementById("clearall");
+
+// Get output fields
+const operandPrev = document.getElementById("operandPrev");
+const operandCurr = document.getElementById("operandCurrent")
+
 // Mathematical functions
 function add(x, y) {
     return x + y;
