@@ -10,22 +10,6 @@ const btnClearAll = document.getElementById("clearall");
 const operandPrev = document.getElementById("operandPrev");
 const operandCurr = document.getElementById("operandCurrent")
 
-// Venture into OOP: create a calculator class (https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/)
-class Calculator {
-    constructor(operandPrev, operandCurr) {
-        this.operandPrev = operandPrev;
-        this.operandCurr = operandCurr;
-        this.clearall();
-    }
-
-    // Function to clear all inputs
-    clearall() {
-        this.operandPrev = "";
-        this.operandCurr = "";
-        this.operation = undefined;
-    }
-}
-
 // Mathematical functions
 function add(x, y) {
     return x + y;
@@ -90,3 +74,22 @@ function display(x, decimals = 10) {
         return x.toString();
     }
 }
+
+// Venture into OOP: create a calculator class (https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/)
+class Calculator {
+    constructor(operandPrev, operandCurr) {
+        this.operandPrev = operandPrev;
+        this.operandCurr = operandCurr;
+        this.clearall();
+    }
+
+    // Function to clear all inputs
+    clearall() {
+        this.operandPrev = "";
+        this.operandCurr = "";
+        this.operation = undefined;
+    }
+}
+
+// Create a calculator item
+const calculator = new Calculator(operandPrev, operandCurr);
