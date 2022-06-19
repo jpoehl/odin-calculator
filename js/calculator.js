@@ -15,7 +15,14 @@ class Calculator {
     constructor(operandPrev, operandCurr) {
         this.operandPrev = operandPrev;
         this.operandCurr = operandCurr;
-        this.clear();
+        this.clearall();
+    }
+
+    // Function to clear all inputs
+    clearall() {
+        this.operandPrev = "";
+        this.operandCurr = "";
+        this.operation = undefined;
     }
 }
 
