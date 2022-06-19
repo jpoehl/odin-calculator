@@ -7,8 +7,8 @@ const btnCancel = document.getElementById("cancel");
 const btnClearAll = document.getElementById("clearall");
 
 // Get output fields
-const operandPrev = document.getElementById("operandPrev");
-const operandCurr = document.getElementById("operandCurrent")
+const operandPrevText = document.getElementById("operandPrev");
+const operandCurrText = document.getElementById("operandCurrent")
 
 // Mathematical functions
 function add(x, y) {
@@ -92,10 +92,12 @@ class Calculator {
     }
 
     // Computation function
-    compute(a, b, o) {
+    compute() {
         let result;
+        const a = parseFloat(this.operandPrev);
+        const b = parseFloat(this.operandCurr);
 
-        switch (o) {
+        switch (this.operation) {
             case '+':
                 result = add(a, b);
                 break;
@@ -108,9 +110,13 @@ class Calculator {
             case '*':
                 result = multiply(a, b);
                 break;
+            default:
+                return;
         }
 
-        return result;
+        this.operandCurr = result;
+        this.operandPrev = "";
+        this.operation = undefined;
     }
 }
 
