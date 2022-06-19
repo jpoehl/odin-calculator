@@ -31,27 +31,6 @@ function divide(x, y) {
     }
 }
 
-// Operating function
-function compute(a, b, o) {
-    let result;
-
-    switch (o) {
-        case '+':
-            result = add(a, b);
-            break;
-        case '-':
-            result = subtract(a, b);
-            break;
-        case '/':
-            result = divide(a, b);
-            break;
-        case '*':
-            result = multiply(a, b);
-            break;
-    }
-
-    return result;
-}
 
 // Format for display
 /// Obtain the number of decimal places (https://stackoverflow.com/questions/9539513/is-there-a-reliable-way-in-javascript-to-obtain-the-number-of-decimal-places-of)
@@ -111,6 +90,28 @@ class Calculator {
         this.operandCurr = "";
 
     }
+
+    // Computation function
+    compute(a, b, o) {
+        let result;
+
+        switch (o) {
+            case '+':
+                result = add(a, b);
+                break;
+            case '-':
+                result = subtract(a, b);
+                break;
+            case '/':
+                result = divide(a, b);
+                break;
+            case '*':
+                result = multiply(a, b);
+                break;
+        }
+
+        return result;
+    }
 }
 
 // Create a calculator item
@@ -132,3 +133,9 @@ for (const btn of btnOperators) {
         calculator.updateDisplay();
     });
 }
+
+/// Equals button: Return result
+btnEqual.addEventListener("click", btn => {
+    calculator.compute();
+    calculator.updateDisplay();
+})
