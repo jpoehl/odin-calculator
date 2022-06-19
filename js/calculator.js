@@ -111,3 +111,11 @@ for (const btn of btnNumbers) {
         calculator.updateDisplay();
     });
 }
+
+/// Operator buttons, if clicked, should select an operation
+for (const btn of btnOperators) {
+    btn.addEventListener("click", (e) => {// Wrap in a function
+        calculator.operate(e.target.textContent);
+        calculator.updateDisplay();
+    });
+}
